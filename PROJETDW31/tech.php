@@ -24,6 +24,10 @@
             <h2>🌍 Localisation via GeoPlugin</h2>
             <?= ip_location_geoplugin_json(); ?>
         </section>
+        <section>
+            <h2>🌄 Image météo aléatoire</h2>
+            <?= display_random_weather_image(); ?>
+        </section>
     </main>
 </body>
 
