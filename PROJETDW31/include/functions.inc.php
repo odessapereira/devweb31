@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Fonction qui récupère et affiche l'image du jour de la NASA APOD
+ * @param string|null $date Format YYYY-MM-DD, si null prend la date du jour
+ * @return string HTML affichant l'image ou la vidéo du jour
+ */
 function display_nasa_apod(string $date = null): string
 {
     $api_key = "aYu1IdzIojH4KnNHJ2Yeafq9kEM1nMjo3ip7IrbF";
@@ -52,7 +56,12 @@ function display_nasa_apod(string $date = null): string
     return $html;
 }
 
-
+// Récupérer l'adresse IP de l'utilisateur
+/**
+ *Fonction qui permet d'afficher la localisation approximative du visiteur json
+*@param void
+*@return string Les différentes informations de localisation
+*/
 function ip_location_json(): string
 {
     $ip = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
@@ -84,7 +93,10 @@ function ip_location_json(): string
     return $html;
 }
 
-
+/**
+ * Fonction qui récupère et affiche la localisation approximative du visiteur via GeoPlugin wJSON
+ * @return string Les différentes informations de localisation sous forme de liste HTML
+ */
 function ip_location_geoplugin_json(): string
 {
     $ip = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
@@ -116,5 +128,4 @@ function display_random_weather_image(): string
     $image = $images[array_rand($images)];
     return "<img src='$image' alt='Image météo aléatoire' width='400'/>";
 }
-
 ?>
