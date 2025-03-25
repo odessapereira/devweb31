@@ -107,4 +107,14 @@ function ip_location_geoplugin_json(): string
 
     return $html;
 }
+
+function display_random_weather_image(): string
+{
+    $images = glob("./images/meteo/*.jpg"); // ou .png selon ton dossier
+    if (empty($images)) return "<p>Aucune image météo disponible.</p>";
+
+    $image = $images[array_rand($images)];
+    return "<img src='$image' alt='Image météo aléatoire' width='400'/>";
+}
+
 ?>
